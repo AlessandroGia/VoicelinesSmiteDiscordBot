@@ -1,4 +1,4 @@
-from it.VoiceChannel.VoiceChannel import VoiceChannel
+from src.VoiceChannel.VoiceChannel import VoiceChannel
 from discord import Object, Intents, ext
 from dotenv import load_dotenv
 
@@ -11,8 +11,8 @@ class VoicelinesDiscordBot(ext.commands.Bot):
         self.vc = VoiceChannel(self)
 
     async def setup_hook(self) -> None:
-        await self.load_extension(f"it.Cogs.VoiceChannelCog")
-        await self.load_extension(f"it.Cogs.MinigameCog")
+        await self.load_extension(f"src.Cogs.VoiceChannelCog")
+        await self.load_extension(f"src.Cogs.MinigameCog")
 
     async def on_ready(self):
         await self.tree.sync(guild=Object(id=928785387239915540))
